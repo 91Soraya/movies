@@ -43,7 +43,7 @@ class IStorage(ABC):
         pass
 
     @abstractmethod
-    def update_movie(self, title, notes):
+    def update_movie(self, title, personal_rating):
         """
         Updates a movie from the movies database.
         Loads the information from the JSON file, updates the movie,

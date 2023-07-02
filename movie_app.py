@@ -1,11 +1,11 @@
 import statistics
 import random
 
+
 class MovieApp:
     def __init__(self, storage, username):
         self._storage = storage
         self._username = username
-
 
     def _command_list_movies(self):
         """
@@ -14,7 +14,6 @@ class MovieApp:
         movies = self._storage.list_movies()
         for movie in movies:
             print(movie, movies[movie]["rating"])
-
 
     def get_list_of_ratings(self):
         """From the movie data file,
@@ -59,7 +58,6 @@ class MovieApp:
                 best_movie = (movie, movies[movie]["rating"])
                 best_movies.append(best_movie)
         return best_movies
-
 
     def worst_rated_movie(self):
         """
@@ -111,7 +109,6 @@ class MovieApp:
                 if movies[movie]["rating"] == rating:
                     print(f'{movie}: {movies[movie]["rating"]}')
 
-
     def _command_movie_stats(self):
         """
         Invokes functions to get the average rating, median rating,
@@ -140,7 +137,8 @@ class MovieApp:
             movie_info = (f"""     
                 <li>
                     <div class="movie">
-                        <a href={movies[movie]["imbd_website"]} target="_blank" ><img class="movie-poster" src={movies[movie]["poster_img_url"]}></a>
+                        <a href={movies[movie]["imbd_website"]} target="_blank" >
+                        <img class="movie-poster" src={movies[movie]["poster_img_url"]}></a>
                         <div class="movie-title">{movie}</div>
                         <div class="movie-rating"> IMBD Rating: {movies[movie]["rating"]}</div>
                         <div class="movie-rating"> Personal rating: {movies[movie]["personal rating"]}</div>
@@ -151,7 +149,8 @@ class MovieApp:
             movie_info = (f"""     
                             <li>
                                 <div class="movie">
-                                    <a href={movies[movie]["imbd_website"]} target="_blank" ><img class="movie-poster" src={movies[movie]["poster_img_url"]}></a>
+                                    <a href={movies[movie]["imbd_website"]} target="_blank" >
+                                    <img class="movie-poster" src={movies[movie]["poster_img_url"]}></a>
                                     <div class="movie-title">{movie}</div>
                                     <div class="movie-rating"> IMBD Rating: {movies[movie]["rating"]}</div>
                                     <div class="movie-year">{movies[movie]["year"]}</div>
@@ -159,7 +158,6 @@ class MovieApp:
                             </li>""")
 
         return movie_info
-
 
     def _generate_website(self):
         movies = self._storage.list_movies()
@@ -188,7 +186,6 @@ class MovieApp:
 
         print("Website was generated successfully.")
 
-
     def display_menu(self):
         """Prints the menu options on the screen"""
         menu = """Menu:
@@ -203,7 +200,6 @@ class MovieApp:
       8. Movies sorted by rating
       9. Generate website"""
         return menu
-
 
     def menu_selection(self, menu_selection):
         """
@@ -233,7 +229,6 @@ class MovieApp:
         press_enter_to_continue = input("Press enter to continue")
         if press_enter_to_continue == "":
             self.run()
-
 
     def run(self):
         # Print menu
